@@ -45,7 +45,7 @@ jobs:
         run: |
           rsync -az --delete \
             -e "ssh -p 22" \
-            dist/ \
+            out/ \
             ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/home/${{ secrets.VPS_USER }}/akki-nginx/wimbo/dist/
 
       - name: Reload nginx container
