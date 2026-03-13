@@ -1,10 +1,10 @@
-import React from 'react'
-import { motion } from 'framer-motion'
-import { Play } from 'lucide-react'
-import { Container, Button } from '../ui'
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Play } from 'lucide-react';
+import { Container, Button } from '../ui';
 
 /**
- * Albums Section with two side-by-side album features
+ * Albums Section with two album features
  */
 const AlbumsSection = () => {
   const albums = [
@@ -26,7 +26,7 @@ const AlbumsSection = () => {
       buttonVariant: 'secondary',
       buttonStyle: 'border-text-primary text-text-primary hover:bg-text-primary hover:text-white'
     }
-  ]
+  ];
 
   return (
     <section id="albums" className="py-20 lg:py-24 bg-background">
@@ -52,8 +52,8 @@ const AlbumsSection = () => {
               <motion.div
                 className={`
                   absolute inset-0 transition-all duration-500
-                  ${album.overlay === 'dark' 
-                    ? 'bg-gradient-to-t from-black/80 via-black/40 to-transparent' 
+                  ${album.overlay === 'dark'
+                    ? 'bg-gradient-to-t from-black/80 via-black/40 to-transparent'
                     : 'bg-gradient-to-t from-primary/80 via-primary/40 to-transparent'
                   }
                   group-hover:from-black/90 group-hover:via-black/50
@@ -120,7 +120,7 @@ const AlbumsSection = () => {
         </div>
       </Container>
     </section>
-  )
-}
+  );
+};
 
-export default AlbumsSection
+export default AlbumsSection;
