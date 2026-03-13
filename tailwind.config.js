@@ -45,6 +45,9 @@ module.exports = {
         black: '900',
         regular: '400',
       },
+      transitionDuration: {
+        '250': '250ms',
+      },
       spacing: {
         'xs': '0.5rem',
         'sm': '1rem',
@@ -108,4 +111,4 @@ module.exports = {
     },
   },
   plugins: [],
-}
+};
