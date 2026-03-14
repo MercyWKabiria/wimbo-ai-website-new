@@ -7,7 +7,7 @@ export default function Hero() {
     <section className="hero-gradient section-padding pt-24">
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left Content */}
+          {/* Left Content 1 */}
           <div className="space-y-8">
             <h1 className="font-serif text-4xl lg:text-6xl font-bold text-text-primary leading-tight">
               Test first. Release Hits. Every time.
