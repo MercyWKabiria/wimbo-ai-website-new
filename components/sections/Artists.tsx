@@ -3,34 +3,18 @@
 import { useState, useRef, useEffect } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
+import Link from 'next/link'
+import Image from 'next/image'
+import { artists } from '@/lib/artists'
 
 export default function Artists() {
-  const [activeFilter, setActiveFilter] = useState('praise')
+  const [activeCategory, setActiveCategory] = useState<'praise-worship' | 'heart-vibe'>('praise-worship')
   const [currentIndex, setCurrentIndex] = useState(0)
   const carouselRef = useRef<HTMLDivElement>(null)
   const sectionRef = useRef<HTMLDivElement>(null)
   const isInView = useInView(sectionRef, { once: true, amount: 0.2 })
 
-  const artists = [
-    {
-      name: 'Lenase Tendi',
-      image: '/images/artist-lenase.png',
-      description: 'A warm soprano archetype optimised for contemporary gospel and worship contexts.',
-      tags: ['Soprano', 'Swahili', 'Worship'],
-    },
-    {
-      name: 'Janiel Mate',
-      image: '/images/artist-janiel.png',
-      description: 'A warm soprano archetype optimised for contemporary gospel and worship contexts.',
-      tags: ['Soprano', 'Swahili', 'Worship'],
-    },
-    {
-      name: 'Jiroh Malaka',
-      image: '/images/artist-jiroh.png',
-      description: 'A warm soprano archetype optimised for contemporary gospel and worship contexts.',
-      tags: ['Soprano', 'Swahili', 'Worship'],
-    },
-  ]
+  const filteredArtists = artists.filter(artist => artist.category === activeCategory)
 
   const scrollToIndex = (index: number) => {
     if (carouselRef.current) {
@@ -89,7 +73,7 @@ export default function Artists() {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6, delay: 0 }}
           >
-            Nine voices.<br />
+            Ten voices.<br />
             Infinite variations.
           </motion.h2>
 
@@ -112,9 +96,9 @@ export default function Artists() {
         >
           <div className="inline-flex bg-white rounded-full p-1">
             <button
-              onClick={() => setActiveFilter('praise')}
+              onClick={() => setActiveCategory('praise-worship')}
               className={`px-6 py-3 rounded-full font-semibold text-base transition-all duration-300 ${
-                activeFilter === 'praise'
+                activeCategory === 'praise-worship'
                   ? 'bg-primary text-white'
                   : 'bg-transparent text-text-primary hover:bg-gray-100'
               }`}
@@ -122,9 +106,9 @@ export default function Artists() {
               Praise & Worship
             </button>
             <button
-              onClick={() => setActiveFilter('vibe')}
+              onClick={() => setActiveCategory('heart-vibe')}
               className={`px-6 py-3 rounded-full font-semibold text-base transition-all duration-300 ${
-                activeFilter === 'vibe'
+                activeCategory === 'heart-vibe'
                   ? 'bg-primary text-white'
                   : 'bg-transparent text-text-primary hover:bg-gray-100'
               }`}
@@ -171,53 +155,56 @@ export default function Artists() {
             className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scroll-smooth px-8 lg:px-12"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
-            {artists.map((artist, index) => (
+            {filteredArtists.map((artist, index) => (
               <motion.div
-                key={artist.name}
+                key={artist.id}
                 className="flex-shrink-0 w-[280px] sm:w-[300px] lg:w-[320px] snap-center"
                 initial={{ opacity: 0, y: 40 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
                 transition={{ duration: 0.6, delay: 0.6 + index * 0.2 }}
               >
-                <div className="group border-2 border-white/30 rounded-3xl p-4 transition-all duration-300 hover:-translate-y-2 hover:border-white/60 hover:shadow-2xl cursor-pointer h-full bg-primary/20 backdrop-blur-sm">
-                  {/* Image */}
-                  <div className="relative overflow-hidden rounded-2xl aspect-square mb-4">
-                    <img 
-                      src={artist.image} 
-                      alt={artist.name}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
+                <Link href={`/artists/${artist.slug}`}>
+                  <div className="group border-2 border-white/30 rounded-3xl p-4 transition-all duration-300 hover:-translate-y-2 hover:border-white/60 hover:shadow-2xl cursor-pointer h-full bg-primary/20 backdrop-blur-sm">
+                    {/* Image */}
+                    <div className="relative overflow-hidden rounded-2xl aspect-square mb-4">
+                      <Image
+                        src={artist.image}
+                        alt={artist.name}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
+
+                    {/* Name */}
+                    <h3 className="font-heading font-bold text-[22px] lg:text-[24px] text-white mb-2">
+                      {artist.name}
+                    </h3>
+
+                    {/* Tagline */}
+                    <p className="text-white/85 text-sm leading-relaxed mb-4">
+                      {artist.tagline}
+                    </p>
+
+                    {/* Tags */}
+                    <div className="flex flex-wrap gap-2">
+                      {artist.tags.map((tag) => (
+                        <span 
+                          key={tag}
+                          className="px-3 py-1.5 border border-white rounded-full text-white text-xs font-medium"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-
-                  {/* Name */}
-                  <h3 className="font-heading font-bold text-[22px] lg:text-[24px] text-white mb-2">
-                    {artist.name}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-white/85 text-sm leading-relaxed mb-4">
-                    {artist.description}
-                  </p>
-
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2">
-                    {artist.tags.map((tag) => (
-                      <span 
-                        key={tag}
-                        className="px-3 py-1.5 border border-white rounded-full text-white text-xs font-medium"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+                </Link>
               </motion.div>
             ))}
           </div>
 
           {/* Dots Indicator */}
           <div className="flex justify-center gap-2 mt-6">
-            {artists.map((_, index) => (
+            {filteredArtists.map((_, index) => (
               <button
                 key={index}
                 onClick={() => {

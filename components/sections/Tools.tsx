@@ -106,9 +106,6 @@ export default function Features() {
                   <button className="bg-primary hover:bg-primary-hover text-white font-semibold px-6 py-3 rounded-full transition-all duration-200 hover:scale-[1.03]">
                     Get Early Access
                   </button>
-                  <button className="border-2 border-primary text-primary font-semibold px-6 py-3 rounded-full transition-all duration-200 hover:bg-primary hover:text-white hover:scale-[1.03]">
-                    See how it works
-                  </button>
                 </div>
               </motion.div>
             </AnimatePresence>

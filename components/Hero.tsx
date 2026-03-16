@@ -15,14 +15,6 @@ export default function Hero() {
             <p className="text-lg lg:text-xl text-text-secondary max-w-lg">
               Test vocals, dialects, and arrangements with AI vocal artists, before you spend a single shilling in the studio.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <button className="btn-primary">
-                Get Early Access
-              </button>
-              <button className="btn-secondary">
-                See how it works
-              </button>
-            </div>
           </div>
 
           {/* Right Content */}

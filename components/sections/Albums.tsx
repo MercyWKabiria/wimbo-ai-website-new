@@ -56,7 +56,7 @@ export default function Albums() {
               </p>
               
               <div>
-                <Link href={`/albums/${album.title.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and').replace(/of\s+/g, '').replace(/&\s+/g, 'and').replace(/[^a-zA-Z0-9]/g, '')}`}>
+                <Link href={album.title === 'My Devotion' ? '/albums/my-devotion' : '/albums/of-love-and-comebacks'}>
                   <button className="px-6 py-3 border-2 border-white text-white rounded-full font-semibold text-sm transition-all duration-300 hover:bg-white hover:text-gray-900">
                     Listen to Album
                   </button>

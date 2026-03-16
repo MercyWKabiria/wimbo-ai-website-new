@@ -63,15 +63,13 @@ export default function HowItWorks() {
           })}
         </div>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button className="btn-primary">
+        {/* Centered Button - OUTSIDE the grid */}
+        <div className="w-full flex justify-center mt-12">
+          <button className="bg-primary hover:bg-primary-hover text-white px-8 py-4 rounded-full font-medium transition-all duration-300">
             Get Early Access
           </button>
-          <button className="btn-secondary">
-            See how it works
-          </button>
         </div>
+
       </div>
     </section>
   )

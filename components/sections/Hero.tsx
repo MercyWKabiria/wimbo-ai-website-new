@@ -55,9 +55,6 @@ export default function Hero() {
               <button className="bg-primary hover:bg-primary-hover text-white font-semibold px-8 py-4 rounded-full transition-all duration-200 hover:scale-[1.03] hover:shadow-lg">
                 Get Early Access
               </button>
-              <button className="border-2 border-primary text-primary font-semibold px-8 py-4 rounded-full transition-all duration-200 hover:bg-primary hover:text-white hover:scale-[1.03]">
-                See how it works
-              </button>
             </div>
 
             {/* Social Proof Row */}
@@ -103,7 +100,7 @@ export default function Hero() {
               style={{
                 width: 'clamp(200px, 45vw, 320px)',
                 height: 'clamp(300px, 55vw, 450px)',
-                background: 'linear-gradient(180deg, #8B89E8 0%, #6366F1 100%)',
+                background: 'transparent',
                 borderRadius: '160px 160px 0 0',
               }}
             />

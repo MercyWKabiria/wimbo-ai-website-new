@@ -10,16 +10,16 @@ export default function Header() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
+    { name: 'Home', href: '/' },
     { 
       name: 'Albums', 
-      href: '#albums',
+      href: '/albums',
       hasMegaMenu: true,
       megaMenu: {
         image: '/images/mega-albums.jpg',
         items: [
-          { name: 'My Devotion', href: '#albums' },
-          { name: 'Of Love & Comebacks', href: '#albums' },
+          { name: 'My Devotion', href: '/albums/my-devotion' },
+          { name: 'Of Love & Comebacks', href: '/albums/of-love-and-comebacks' },
         ]
       }
     },
@@ -36,7 +36,7 @@ export default function Header() {
       }
     },
     { name: 'About Syni.ai', href: '#about' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Get Early Access', href: '#early-access', isCTA: true },
   ]
 
   const handleMouseEnter = (name: string) => {
@@ -70,7 +70,11 @@ export default function Header() {
               >
                 <Link
                   href={link.href}
-                  className="relative flex items-center gap-1 text-text-primary hover:text-primary font-medium text-sm transition-colors duration-200 group py-2"
+                  className={`relative flex items-center gap-1 font-medium text-sm transition-all duration-200 group py-2 ${
+                    link.isCTA 
+                      ? 'bg-primary text-white hover:bg-primary-hover px-6 py-3 rounded-full hover:scale-[1.03] hover:shadow-lg' 
+                      : 'text-text-primary hover:text-primary'
+                  }`}
                 >
                   {link.name}
                   {link.hasMegaMenu && (
@@ -80,7 +84,9 @@ export default function Header() {
                       }`} 
                     />
                   )}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+                  {!link.isCTA && (
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+                  )}
                 </Link>
 
                 <AnimatePresence>
@@ -179,7 +185,11 @@ export default function Header() {
                       <Link
                         href={link.href}
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className="block text-text-primary hover:text-primary font-medium text-base py-2 transition-colors duration-200"
+                        className={`block font-medium text-base py-2 transition-colors duration-200 ${
+                          link.isCTA 
+                            ? 'bg-primary text-white hover:bg-primary-hover px-6 py-3 rounded-full text-center mt-2' 
+                            : 'text-text-primary hover:text-primary'
+                        }`}
                       >
                         {link.name}
                       </Link>

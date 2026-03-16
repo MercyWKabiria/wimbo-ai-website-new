@@ -15,9 +15,6 @@ export default function NineWays() {
               <button className="btn-primary">
                 Get Early Access
               </button>
-              <button className="btn-secondary">
-                See how it works
-              </button>
             </div>
           </div>
 

@@ -169,16 +169,13 @@ export default function HowItWorks() {
 
         {/* CTA Buttons */}
         <motion.div 
-          className="flex flex-col sm:flex-row justify-center gap-4 mt-16 lg:mt-20"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          className="flex flex-col sm:flex-row gap-4"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5, delay: 2.2 }}
         >
           <button className="w-full sm:w-auto bg-primary hover:bg-primary-hover text-white font-semibold px-8 py-4 rounded-full transition-all duration-200 hover:scale-[1.03] hover:shadow-lg">
             Get Early Access
-          </button>
-          <button className="w-full sm:w-auto border-2 border-primary text-primary font-semibold px-8 py-4 rounded-full transition-all duration-200 hover:bg-primary hover:text-white hover:scale-[1.03]">
-            See how it works
           </button>
         </motion.div>
 
