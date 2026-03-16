@@ -233,7 +233,7 @@ export default function AlbumDetailClient({ album, featuredArtists }: AlbumDetai
                         src={artist?.image || ''}
                         alt={artist?.name || ''}
                         fill
-                        className="object-cover"
+                        className="object-cover object-top"
                       />
                     </div>
                     <div className="p-5">

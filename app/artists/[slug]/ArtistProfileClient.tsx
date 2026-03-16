@@ -77,7 +77,7 @@ export default function ArtistProfileClient({ artist, albums }: ArtistProfileCli
               <img 
                 src={artist.image} 
                 alt={artist.name}
-                className="rounded-3xl w-full max-w-lg"
+                className="rounded-3xl w-full max-w-lg object-cover object-top"
               />
             </motion.div>
 
