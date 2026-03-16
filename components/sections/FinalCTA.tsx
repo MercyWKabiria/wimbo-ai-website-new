@@ -1,6 +1,7 @@
 'use client'
 
 import { Button } from '@/components/ui'
+import Link from 'next/link'
 
 export default function FinalCTA() {
   return (
@@ -21,9 +22,11 @@ export default function FinalCTA() {
             Join selected artists, songwriters, and producers for early access to East Africa's first AI music pre-production studio.
           </p>
           <div className="pt-4">
-            <Button variant="secondary-white" size="lg" className="text-lg px-8 py-4">
-              Get Early Access
-            </Button>
+            <Link href="/get-early-access">
+              <Button variant="secondary-white" size="lg" className="text-lg px-8 py-4">
+                Get Early Access
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

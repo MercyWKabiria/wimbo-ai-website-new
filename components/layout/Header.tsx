@@ -36,7 +36,7 @@ export default function Header() {
       }
     },
     { name: 'About Syni.ai', href: '#about' },
-    { name: 'Get Early Access', href: '#early-access', isCTA: true },
+    { name: 'Get Early Access', href: '/get-early-access', isCTA: true },
   ]
 
   const handleMouseEnter = (name: string) => {

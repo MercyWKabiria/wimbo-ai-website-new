@@ -1,3 +1,7 @@
+'use client'
+
+import Link from 'next/link'
+
 export default function NineWays() {
   return (
     <section className="section-padding bg-white">
@@ -12,9 +16,11 @@ export default function NineWays() {
               Before you commit to a direction, hear how your composition sounds across 9 AI vocal archetypes — soprano to baritone, gospel to secular, contemporary to traditional.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="btn-primary">
-                Get Early Access
-              </button>
+              <Link href="/get-early-access">
+                <button className="bg-primary hover:bg-primary-hover text-white px-8 py-4 rounded-full font-medium transition-all duration-300">
+                  Get Early Access
+                </button>
+              </Link>
             </div>
           </div>
 

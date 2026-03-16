@@ -46,7 +46,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="#contact" className="text-text-primary text-sm hover:text-primary transition-colors duration-200">
+                <Link href="/get-early-access" className="text-text-primary text-sm hover:text-primary transition-colors duration-200">
                   Contact
                 </Link>
               </li>

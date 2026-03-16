@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 
 export default function Hero() {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -52,9 +53,11 @@ export default function Hero() {
                 isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
-              <button className="bg-primary hover:bg-primary-hover text-white font-semibold px-8 py-4 rounded-full transition-all duration-200 hover:scale-[1.03] hover:shadow-lg">
-                Get Early Access
-              </button>
+              <Link href="/get-early-access">
+                <button className="bg-primary hover:bg-primary-hover text-white px-8 py-4 rounded-full font-medium transition-all duration-300">
+                  Get Early Access
+                </button>
+              </Link>
             </div>
 
             {/* Social Proof Row */}

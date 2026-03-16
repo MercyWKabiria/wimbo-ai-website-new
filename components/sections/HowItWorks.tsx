@@ -1,5 +1,7 @@
 'use client'
 
+import { Music, MessageCircle, FileText } from 'lucide-react'
+import Link from 'next/link'
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 
@@ -174,9 +176,13 @@ export default function HowItWorks() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5, delay: 2.2 }}
         >
-          <button className="w-full sm:w-auto bg-primary hover:bg-primary-hover text-white font-semibold px-8 py-4 rounded-full transition-all duration-200 hover:scale-[1.03] hover:shadow-lg">
-            Get Early Access
-          </button>
+          <div className="w-full flex justify-center mt-12">
+            <Link href="/get-early-access">
+              <button className="bg-primary hover:bg-primary-hover text-white px-8 py-4 rounded-full font-medium transition-all duration-300">
+                Get Early Access
+              </button>
+            </Link>
+          </div>
         </motion.div>
 
       </div>

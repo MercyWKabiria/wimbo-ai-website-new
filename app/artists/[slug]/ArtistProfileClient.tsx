@@ -271,9 +271,11 @@ export default function ArtistProfileClient({ artist, albums }: ArtistProfileCli
               <h4 className="font-heading font-bold text-xl text-text-primary mb-4">
                 Your track could<br />be next
               </h4>
-              <button className="px-6 py-2 border-2 border-text-primary text-text-primary rounded-full font-semibold text-sm hover:bg-text-primary hover:text-white transition-colors">
-                Get Early Access
-              </button>
+              <Link href="/get-early-access">
+                <button className="bg-primary hover:bg-primary-hover text-white px-8 py-4 rounded-full font-medium transition-all duration-300">
+                  Get Early Access
+                </button>
+              </Link>
             </div>
           </motion.div>
         </div>

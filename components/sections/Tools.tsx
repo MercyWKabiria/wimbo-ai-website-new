@@ -2,6 +2,7 @@
 
 import { useState, useRef } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
+import Link from 'next/link'
 
 export default function Features() {
   const [activeTab, setActiveTab] = useState(0)
@@ -103,9 +104,11 @@ export default function Features() {
                 </p>
                 
                 <div className="flex flex-wrap gap-4">
-                  <button className="bg-primary hover:bg-primary-hover text-white font-semibold px-6 py-3 rounded-full transition-all duration-200 hover:scale-[1.03]">
-                    Get Early Access
-                  </button>
+                  <Link href="/get-early-access">
+                    <button className="bg-primary hover:bg-primary-hover text-white px-8 py-4 rounded-full font-medium transition-all duration-300">
+                      Get Early Access
+                    </button>
+                  </Link>
                 </div>
               </motion.div>
             </AnimatePresence>
